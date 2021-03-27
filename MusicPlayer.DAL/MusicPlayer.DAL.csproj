@@ -57,6 +57,7 @@
     <Compile Include="Configurations\ArtistConfig.cs" />
     <Compile Include="Configurations\PlaylistConfig.cs" />
     <Compile Include="Configurations\TrackConfig.cs" />
+    <Compile Include="Configurations\UserConfig.cs" />
     <Compile Include="EF\Initializer.cs" />
     <Compile Include="Entities\Album.cs" />
     <Compile Include="Entities\Artist.cs" />
