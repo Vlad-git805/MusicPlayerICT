@@ -55,7 +55,8 @@
   <ItemGroup>
     <Compile Include="EF\Initializer.cs" />
     <Compile Include="Entities\Album.cs" />
-    <Compile Include="Entities\Artists.cs" />
+    <Compile Include="Entities\Artist.cs" />
+    <Compile Include="Entities\Track.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
