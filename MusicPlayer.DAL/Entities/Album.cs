@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicPlayer.DAL.Entities
 {
-    class Album
+    public class Album
     {
         public int Id { get; set; }
         public string Name { get; set; }
