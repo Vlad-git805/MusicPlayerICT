@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Configurations\AlbumConfig.cs" />
     <Compile Include="Configurations\ArtistConfig.cs" />
+    <Compile Include="Configurations\CategoryConfig.cs" />
     <Compile Include="Configurations\PlaylistConfig.cs" />
     <Compile Include="Configurations\TrackConfig.cs" />
     <Compile Include="Configurations\UserConfig.cs" />
