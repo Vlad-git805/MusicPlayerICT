@@ -13,5 +13,6 @@ namespace MusicPlayer.DAL.Entities
         public string Suname { get; set; }
         public string Country { get; set; }
         public virtual ICollection<Album> Albums { get; set; }
+        public virtual ICollection<Track> Tracks { get; set; }
     }
 }

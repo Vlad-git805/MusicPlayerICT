@@ -59,7 +59,7 @@
     <Compile Include="Entities\Playlist.cs" />
     <Compile Include="Entities\Track.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Сategories.cs" />
+    <Compile Include="Entities\Сategory.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="EF\MusicPlayerDbContext.cs" />

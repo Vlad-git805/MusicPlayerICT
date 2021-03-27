@@ -15,5 +15,7 @@ namespace MusicPlayer.DAL.Entities
         public byte Picture { get; set; }
         public string WayToSongs { get; set; }
 
+        public virtual ICollection<Playlist> Playlists { get; set; }
+
     }
 }
