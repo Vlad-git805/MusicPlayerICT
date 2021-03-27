@@ -10,9 +10,10 @@ namespace MusicPlayer.DAL.EF
         public MusicPlayerDbContext()
             : base("name=MusicPlayerDbContext")
         {
+            Database.SetInitializer(new Initializer());
         }
 
-        public virtual DbSet<MyEntity> MyEntities { get; set; }
+        //public virtual DbSet<MyEntity> MyEntities { get; set; }
     }
 
    
