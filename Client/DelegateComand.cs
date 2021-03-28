@@ -7,37 +7,32 @@ using System.Windows.Input;
 
 namespace Client
 {
-    public class DelegateComand : ICommand
+    internal sealed class DelegateCommand : Command
     {
-        Action<object> execute;
-        Func<object, bool> canExecute;
+        private static readonly Func<bool> defaultCanExecuteMethod = () => true;
 
-        public event EventHandler CanExecuteChanged
+        private readonly Func<bool> canExecuteMethod;
+        private readonly Action executeMethod;
+
+        public DelegateCommand(Action executeMethod) :
+            this(executeMethod, defaultCanExecuteMethod)
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public bool CanExecute(object parameter)
+        public DelegateCommand(Action executeMethod, Func<bool> canExecuteMethod)
         {
-            if (canExecute != null)
-                return canExecute(parameter);
-
-            return true;
+            this.canExecuteMethod = canExecuteMethod;
+            this.executeMethod = executeMethod;
         }
 
-        public void Execute(object parameter)
+        protected override bool CanExecute()
         {
-            if(execute != null)
-                execute(parameter);
+            return canExecuteMethod();
         }
 
-        public DelegateComand(Action<object> executeAction) : this(executeAction, null) {}
-
-        public DelegateComand(Action<object> executeAction, Func<object, bool> canExecuteFunc)
+        protected override void Execute()
         {
-            canExecute = canExecuteFunc;
-            execute = executeAction;
+            executeMethod();
         }
     }
 }

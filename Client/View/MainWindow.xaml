@@ -19,8 +19,10 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
         <Button Grid.Column="3" Grid.Row="0" Margin="5" Command="{Binding Path=select_dir_for_scan}"> Open directory for scan</Button>
 
         <ListBox></ListBox>
+
     </Grid>
 </Window>
