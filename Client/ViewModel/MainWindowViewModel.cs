@@ -19,7 +19,7 @@ namespace Client.ViewModel
 
         public MainWindowViewModel()
         {
-            asd = new DelegateComand(fleks);
+            asd = new DelegateComand(Select_directory_for_scan_music);
         }
 
         private void Skan(string sourceDir)
@@ -35,7 +35,7 @@ namespace Client.ViewModel
             });
         }
 
-        void fleks(object obj)
+        void Select_directory_for_scan_music(object obj)
         {
             string sourceDir = null;
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
