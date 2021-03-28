@@ -15,11 +15,11 @@ namespace Client.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public ICommand asd { get; private set; }
+        public ICommand select_dir_for_scan { get; private set; }
 
         public MainWindowViewModel()
         {
-            asd = new DelegateComand(Select_directory_for_scan_music);
+            select_dir_for_scan = new DelegateComand(Select_directory_for_scan_music);
         }
 
         private void Skan(string sourceDir)
