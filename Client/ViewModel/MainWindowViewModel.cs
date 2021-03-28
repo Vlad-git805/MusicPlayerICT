@@ -15,11 +15,12 @@ namespace Client.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public ICommand select_dir_for_scan { get; private set; }
+        private Command select_dir_for_scan;
+        public ICommand Select_dir_for_scan => select_dir_for_scan;
 
         public MainWindowViewModel()
         {
-            select_dir_for_scan = new DelegateComand(Select_directory_for_scan_music);
+            select_dir_for_scan = new DelegateCommand(Select_directory_for_scan_music);
         }
 
         private void Skan(string sourceDir)
@@ -35,7 +36,7 @@ namespace Client.ViewModel
             });
         }
 
-        void Select_directory_for_scan_music(object obj)
+        void Select_directory_for_scan_music()
         {
             string sourceDir = null;
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
