@@ -79,7 +79,12 @@
     </Compile>
     <Compile Include="Command.cs" />
     <Compile Include="DelegateComand.cs" />
-    <Compile Include="Model\Tracks.cs" />
+    <Compile Include="Model\AlbumViewModel.cs" />
+    <Compile Include="Model\ArtistViewModel.cs" />
+    <Compile Include="Model\PlaylistViewMode.cs" />
+    <Compile Include="Model\TrackViewMode.cs" />
+    <Compile Include="Model\UserViewMode.cs" />
+    <Compile Include="Model\СategoryViewMode.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
