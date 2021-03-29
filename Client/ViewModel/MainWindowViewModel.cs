@@ -16,11 +16,20 @@ namespace Client.ViewModel
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private Command select_dir_for_scan;
+        private Command wayToPictureCommand;
+        private Command wayToMusicCommand;
         public ICommand Select_dir_for_scan => select_dir_for_scan;
+        public ICommand WayToMusicCommand => wayToMusicCommand;
+        public ICommand WayToPictureCommand => wayToPictureCommand;
 
+        private string music;
+        private string picture = $"Assets\\NoPhoto.png";
+        
         public MainWindowViewModel()
         {
             select_dir_for_scan = new DelegateCommand(Select_directory_for_scan_music);
+            wayToMusicCommand = new DelegateCommand(SelectDirectoryForWayToMusic);
+            wayToPictureCommand = new DelegateCommand(SelectDirectoryForwayToPicture);
         }
 
         private void Skan(string sourceDir)
@@ -36,6 +45,28 @@ namespace Client.ViewModel
             });
         }
 
+        public string Picture
+        {
+            get => picture;
+            set
+            {
+                picture = value;
+                OnPropertyChanged();
+
+            }
+        }
+
+        public string Music
+        {
+            get => music;
+            set
+            {
+                music = value;
+                OnPropertyChanged();
+
+            }
+        }
+
         void Select_directory_for_scan_music()
         {
             string sourceDir = null;
@@ -49,6 +80,31 @@ namespace Client.ViewModel
             if(sourceDir != null)
                 Skan(sourceDir);
         }
+
+        void SelectDirectoryForWayToMusic()
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = @"C:\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                Music = dialog.FileName;
+            }
+        }
+
+        void SelectDirectoryForwayToPicture()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            dialog.InitialDirectory = @"C:";
+            dialog.Title = "Please select an image file to encrypt.";
+
+            if (dialog.ShowDialog() == true)
+            {
+                Picture = dialog.FileName;
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

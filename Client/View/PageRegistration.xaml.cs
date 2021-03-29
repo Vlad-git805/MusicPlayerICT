@@ -16,18 +16,16 @@ using System.Windows.Shapes;
 
 namespace Client.View
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для PageRegistration.xaml
+    /// </summary>
+    public partial class PageRegistration : Page
     {
-        public MainWindow()
+        private MainWindowViewModel viewModel = new MainWindowViewModel();
+        public PageRegistration()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
-        }
-  
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            WindowRegistration windowRegistration = new WindowRegistration();
-            windowRegistration.Show();
+            this.DataContext = viewModel;
         }
     }
 }

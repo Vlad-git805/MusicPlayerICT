@@ -1,5 +1,4 @@
-﻿using Client.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,23 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Client.View
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для WindowRegistration.xaml
+    /// </summary>
+    public partial class WindowRegistration : Window
     {
-        public MainWindow()
+        public WindowRegistration()
         {
+           
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
-        }
-  
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            WindowRegistration windowRegistration = new WindowRegistration();
-            windowRegistration.Show();
+            loginFrame.NavigationService.Navigate(new Uri("View/PageRegistration.xaml", UriKind.Relative));
         }
     }
 }
