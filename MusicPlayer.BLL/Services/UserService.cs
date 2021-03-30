@@ -1,24 +1,38 @@
 ﻿using MusicPlayer.BLL.DTO;
+using MusicPlayer.BLL.Infrastructure;
 using MusicPlayer.BLL.Interfaces;
-using System;
+using MusicPlayer.DAL.Entities;
+using MusicPlayer.DAL.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MusicPlayer.BLL.Services
 {
-    public class UserService : IUserService
+    public class UserService : IService<UserDTO>
     {
-        public void MakeUser(UserDTO userrDto)
-        {
+        IUnitOfWork Database { get; set; }
 
+        public UserService(IUnitOfWork uow)
+        {
+            Database = uow;
         }
-        public UserDTO GetUser(int id)
+
+        public void Make(UserDTO classDTO)
+        {
+            User user = new User
+            {
+                Name = classDTO.Name,
+                Password = classDTO.Password,
+                Picture = classDTO.Picture,
+                WayToSongs = classDTO.WayToSongs
+            };
+            Database.Users.Create(user);
+            Database.Save();         
+        }
+        public UserDTO Get(int id)
         {
             return null;
         }
-        public IEnumerable<UserDTO> GetUsers()
+        public IEnumerable<UserDTO> GetAll()
         {
             return null;
         }
@@ -28,3 +42,6 @@ namespace MusicPlayer.BLL.Services
         }
     }
 }
+
+
+

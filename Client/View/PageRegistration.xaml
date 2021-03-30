@@ -119,7 +119,7 @@
                     <ColumnDefinition ></ColumnDefinition>
                     <ColumnDefinition ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Width="110" Content="Sign Up" Background="#FF0C2A74" HorizontalAlignment="Center" Margin="20"></Button>
+                <Button Command="{Binding AddUserCommand}" Grid.Column="1" Width="110" Content="Sign Up" Background="#FF0C2A74" HorizontalAlignment="Center" Margin="20"></Button>
             </Grid>
 
         </StackPanel>

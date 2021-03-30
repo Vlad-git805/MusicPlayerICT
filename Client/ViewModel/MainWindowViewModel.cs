@@ -1,5 +1,7 @@
 ﻿using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using MusicPlayer.BLL.Interfaces;
+using MusicPlayer.BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +17,15 @@ namespace Client.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+      //  private IService userService = new UserService();
         private Command select_dir_for_scan;
         private Command wayToPictureCommand;
         private Command wayToMusicCommand;
+        private Command addUserCommand;
         public ICommand Select_dir_for_scan => select_dir_for_scan;
         public ICommand WayToMusicCommand => wayToMusicCommand;
         public ICommand WayToPictureCommand => wayToPictureCommand;
+        public ICommand AddUserCommand => addUserCommand;
 
         private string music;
         private string picture = $"Assets\\NoPhoto.png";
@@ -30,6 +35,8 @@ namespace Client.ViewModel
             select_dir_for_scan = new DelegateCommand(Select_directory_for_scan_music);
             wayToMusicCommand = new DelegateCommand(SelectDirectoryForWayToMusic);
             wayToPictureCommand = new DelegateCommand(SelectDirectoryForwayToPicture);
+            addUserCommand = new DelegateCommand(AddNewUserFromDatebase);
+
         }
 
         private void Skan(string sourceDir)
@@ -105,6 +112,10 @@ namespace Client.ViewModel
             }
         }
 
+        void AddNewUserFromDatebase()
+        {
+
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

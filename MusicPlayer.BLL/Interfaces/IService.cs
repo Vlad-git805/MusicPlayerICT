@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace MusicPlayer.BLL.Interfaces
 {
-    public interface IUserService
+
+    public interface IService<T> where T : class
     {
-        void MakeUser(UserDTO userrDto);
-        UserDTO GetUser(int id);
-        IEnumerable<UserDTO> GetUsers();
+        void Make(T classDTO);
+        T Get(int id);
+        IEnumerable<T> GetAll();
         void Dispose();
     }
 }
+   

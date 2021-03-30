@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayer.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace MusicPlayer.DAL.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-       // IRepository</*class*/> /*class*/ { get; }
+       IRepository<User> Users { get; }
        // IRepository</*class*/> /*class*/ { get; }
         void Save();
     }
