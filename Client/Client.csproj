@@ -60,6 +60,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="taglib-sharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\taglib-sharp-netstandard2.0.2.1.0\lib\netstandard2.0\taglib-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -81,6 +84,7 @@
     <Compile Include="DelegateComand.cs" />
     <Compile Include="Model\AlbumViewModel.cs" />
     <Compile Include="Model\ArtistViewModel.cs" />
+    <Compile Include="Model\MetaDataOfTrack.cs" />
     <Compile Include="Model\PlaylistViewMode.cs" />
     <Compile Include="Model\TrackViewMode.cs" />
     <Compile Include="Model\UserViewMode.cs" />
