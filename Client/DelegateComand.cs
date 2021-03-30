@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace Client
 {
+    //корисний код
     internal sealed class DelegateCommand : Command
     {
         private static readonly Func<bool> defaultCanExecuteMethod = () => true;
